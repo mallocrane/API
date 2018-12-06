@@ -13,18 +13,15 @@ if (isset($_POST) && isset($_POST['email']) && isset($_POST['password'])) {
         // Login has failed
     }
 }
-
-
-
 function login($email, $password) {
 
     $user = getUserEmail($email);
-
     // If user exists
     if ($user != null) {
         if (hashPassword($password) == $user['password']) {
             // Connect successfull
             $_SESSION['id_user'] = $user['id_user'];
+			echo('cok');
             return true;
         } else {
             return false;

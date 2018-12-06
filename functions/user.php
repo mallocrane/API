@@ -8,14 +8,13 @@ function hashPassword($password) {
 
 function getUserEmail($email) {
 	global $DB;
-    $sql = "SELECT * FROM user WHERE id_user = :id_user";
+    $sql = "SELECT * FROM user WHERE email ='".$email."'";
 
-    $DB->prepare($sql);
-    $DB->execute(array('email' => $email));
+    $result=$DB->query($sql);
 
-    if ($DB->countRow() == 0) return null;
+    if (mysqli_num_rows($result)== 0) return null;
 
-    return $DB->fetch();
+    return $result->fetch_array(MYSQLI_ASSOC);
 }
 
 ?>
