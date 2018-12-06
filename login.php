@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+require('functions/user.php');
+
 header('Content-type: application/json');
 
 if (isset($_POST) && isset($_POST['email']) && isset($_POST['password'])) {
@@ -12,9 +14,7 @@ if (isset($_POST) && isset($_POST['email']) && isset($_POST['password'])) {
     }
 }
 
-function hashPassword($password) {
-    return md5('sel' . $password . 'sel');
-}
+
 
 function login($email, $password) {
 
