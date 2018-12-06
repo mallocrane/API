@@ -3,7 +3,7 @@
 session_start();
 require('functions/user.php');
 
-header('Content-type: application/json');
+//header('Content-type: application/json');
 
 if (isset($_POST) && isset($_POST['email']) && isset($_POST['password'])) {
     // Attempt login
@@ -33,3 +33,4 @@ function login($email, $password) {
         return false;
     }
 }
+?>

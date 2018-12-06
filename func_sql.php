@@ -6,15 +6,17 @@ include 'db_connect.php';
  */
 function create_new_cell()
 {
-	$sql="INSERT INTO `cells`(`cell_prev`, `cell_next`, `bucket`) VALUES (NULL,NULL,'')";
+	global $DB;
+	$sql="INSERT INTO `cells`(`bucket`) VALUES ('')";
 	if ($DB->query($sql) === TRUE)
 	{
 		$last_id = $DB->insert_id;
-		echo "New record created successfully. Last inserted ID is: " . $last_id;
+		echo "New cell created. Last inserted ID is: " . $last_id;
 	}
 	else
 	{
 		echo "Error: " . $sql . "<br>" . $DB->error;
 	}
 }
+create_new_cell();
 ?>
