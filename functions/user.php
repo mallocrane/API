@@ -1,6 +1,6 @@
 <?php
 
-include("db_connect.php");
+include("../db_connect.php");
 
 function hashPassword($password) {
     return md5('sel' . $password . 'sel');
